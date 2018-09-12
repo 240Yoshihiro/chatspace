@@ -17,9 +17,8 @@
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|group_name|integer|null: false, foreign_key: false|
+|group_name|varchar|null: false|
 |text_id|integer|null: false, foreign_key: true|
-|text|integer|null: true, foreign_key: false|
 
 ### Association
 - has_many :users, through: :members
@@ -31,8 +30,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|text|integer|null: true, foreign_key: false|
-|text_title|integer|null: false, foreign_key: false|
+|text|text| foreign_key: false|
 |text_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
@@ -47,9 +45,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false, foreign_key: false|
-|address|integer|null: true, foreign_key: true, unique: false|
-|password|integer|null: true, foreign_key: true, unique: false|
+|name|varchar|null: false, foreign_key: false|
+|address|varchar| foreign_key: true, unique: false|
+|password|integer| foreign_key: true, unique: false|
 |user_id|integer|null: false, foreign_key: true|
 |text_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
