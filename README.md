@@ -15,9 +15,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false|
 |group_name|varchar|null: false|
+|user_id|integer|null: false, foreign_key: true|
 |text_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -30,8 +30,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|text|text| foreign_key: false|
-|text_id|integer|null: false, foreign_key: true|
+|text_id|integer|null: false|
+|text|text| foreign_key: false｜
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
@@ -45,10 +45,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|varchar|null: false, foreign_key: false|
-|address|varchar| foreign_key: true, unique: false|
-|password|integer| foreign_key: true, unique: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false|
+|name|varchar|null: false|
+|address|varchar| unique: false|
+|password|integer| unique: false|
 |text_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
