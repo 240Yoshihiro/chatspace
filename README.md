@@ -33,7 +33,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false , add_index|
-|email|string|null: false , unique: true , add_index|
+|email|string|null: false , unique: true|
 |encrypted_password|string|null: false|
 
 ### Association
