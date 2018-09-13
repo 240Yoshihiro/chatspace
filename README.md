@@ -1,60 +1,61 @@
 # README
 
-## membersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :group
-- belongs_to :user
-
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false|
-|group_name|varchar|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|text_id|integer|null: false, foreign_key: true|
+|id|integer|null: false , unique: true|
+|name|string|null: false , add_index|
 
 ### Association
-- has_many :users, through: :members
-  has_many :groups,through: :members
-- belongs_to :group
+  has_many :users, through: :groups_users
+  has_many :groups_users
   has_many :messages
 
-## messageテーブル
+
+
+
+## groups_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|text_id|integer|null: false|
-|text|text| foreign_key: false｜
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|id|integer|null: false , unique: true|
+|user_id|integer|null: false, references :user, foreign_key: true|
+|group_id|integer|null: false, references :group , foreign_key: true|
 
 ### Association
-- belongs_to :user
-  has_many :messages
   belongs_to :group
-  has_many :messages
+  belongs_to :user
+
+
+
 
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|name|varchar|null: false|
-|address|varchar| unique: false|
-|password|integer| unique: false|
-|text_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|id|integer|null: false , unique: true|
+|name|string|null: false , add_index|
+|email|string|null: false , unique: true , add_index|
+|password|string|null: false|
 
 ### Association
-  has_many :users, through: :members
-  has_many :groups,through: :members
-- belongs_to :user
+  has_many :groups,through: :groups_users
+  has_manuy :groups_users
   has_many :messages
 
+
+
+## messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|id|integer|null: false ,unique: true|
+|text|text| null: false｜
+|image|string||
+|user_id|integer|null: false, references :user, foreign_key: true|
+|group_id|integer|null: false, references :group , foreign_key: true|
+
+### Association
+  belongs_to :user
+  belongs_to :group
