@@ -18,8 +18,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true, add_index|
+|group_id|references|null: false, foreign_key: true, add_index|
 
 ### Association
   belongs_to :group
