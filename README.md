@@ -33,7 +33,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false , add_index|
-|email|string|null: false , unique: true |
+|email|string|null: false , unique: true , add_index|
+|encrypted_password|string|null: false|
 
 ### Association
   has_many :groups_users
@@ -47,9 +48,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|｜
-|image|string||
-|user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+|image|string|null: false|
+|user_id|references|null: false, foreign_key: true, add_index|
+|group_id|references|null: false, foreign_key: true, add_index|
 
 ### Association
   belongs_to :user
