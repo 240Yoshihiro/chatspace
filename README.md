@@ -48,7 +48,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|｜
-|image|string|null: false|
+|image|string||
 |user_id|references|null: false, foreign_key: true, add_index|
 |group_id|references|null: false, foreign_key: true, add_index|
 
