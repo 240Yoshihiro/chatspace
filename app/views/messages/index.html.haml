@@ -1,22 +1,6 @@
 %header
   .head-notice チャットグループが作成完了
-.leftcontents
-  .leftcontents__user
-    .leftcontents__user__name Fuyou
-    %ul.leftcontents__user__list
-      %li
-        = link_to "#" do
-          = fa_icon "edit"
-      %li
-        = link_to "#" do
-          = fa_icon "cog"
-  .leftcontents__groups
-    .leftcontents__groups__list
-      .leftcontents__groups__list__group-name sample 1
-      .leftcontents__groups__list__group-message latest message XXX
-    .leftcontents__groups__list
-      .leftcontents__groups__list__group-name sample 2
-      .leftcontents__groups__list__group-message latest message ZZZ
+  = render 'shared/side_bar'
 .main
   .main__header
     .main__header__left
