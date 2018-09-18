@@ -57,3 +57,5 @@ gem 'haml-rails'
 #ユーザー管理
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick'

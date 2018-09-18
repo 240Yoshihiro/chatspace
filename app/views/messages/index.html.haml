@@ -1,27 +1,37 @@
 %header
-  .head-notice チャットグループが作成完了
-  = render 'shared/side_bar'
+  .head-notice チャットグループが作成されました。
+.leftcontens
+  .leftcontens__user
+  = render'shared/side_bar'
 .main
   .main__header
     .main__header__left
-      .main__header__left__group-name sample
-      .main__header__left__member a aa aaa
+      .main__header__left__group-name group name
+      .main__header__left__member MEMBER: AAA BBB CCC
     .main__header__edit
       %a{:href => ""} edit
   .main__body
     .main__body__message-list
       .main__body__message-list__message
-        .main__body__message-list__message__user-name fuyouA
-        .main__body__message-list__message__time 2018/09/13 12:00:00
-        .main__body__message-list__message__text aaaaaaaa
-        .main__body__message-list__message
-        .main__body__message-list__message__user-name fuyouB
-        .main__body__message-list__message__time 2018/09/14 12:00:00
-        .main__body__message-list__message__text bbbbbbbb
+        .main__body__message-list__message__user-name fiyou1
+        .main__body__message-list__message__time
+        .main__body__message-list__message__text aaa
+      .main__body__message-list__message
+        .main__body__message-list__message__user-name fuyou2
+        .main__body__message-list__message__time
+        .main__body__message-list__message__text bbb
   .main__footer
-    %form.main__footer__body
-      %input{:placeholder => "type a message", :type => "text", :class => "input"}/
-      .image
-        = link_to "#" do
-          = fa_icon "image"
-      %input{:type => "submit", :value => "Send", :class => "submit"}/
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message' , placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Sebd' , class: 'form__submit'
+    / %form.main__footer__body
+    /   %input{:placeholder => "type a message", :type => "text", :class => "input"}/
+    /   .image
+    /     = link_to "#" do
+    /       = fa_icon "image"
+    /   %input{:type => "submit", :value => "Send", :class => "submit"}/
