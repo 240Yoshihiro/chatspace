@@ -39,11 +39,10 @@
   &__body {
     background-color: $lightGray;
     height: calc(100vh - 100px - 90px);
-    padding: 0 40px;
+    padding: 46px 40px 0;
     &__message-list {
       padding-top: 16px;
       &__message {
-        padding: 20px 0;
         &__user-name {
           font-size: 16px;
           color: $textNavy;
