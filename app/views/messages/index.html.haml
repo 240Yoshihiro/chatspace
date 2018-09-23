@@ -1,22 +1,24 @@
 %header
   .head-notice チャットグループが作成されました。
 .leftcontens
-  .leftcontens__user
   = render'shared/side_bar'
 .main
   .main__header
     .main__header__left
-      .main__header__left__group-name fuyou
-      .main__header__left__member a aa aaa
+      .main__header__left__group-name
+        = @group.name
+      .main__header__left__member
+        Member:
+        = @group.users.pluck(:name).join(", ")
     .main__header__edit
-      %a{:href => ""} edit
-  = render partial: "message", collection: @messages
+      %a{:href => "/groups/1/edit"} edit
+  .main__body
+    = render partial: "message", collection: @messages
   .main__footer
-    .form
-      = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message' , placeholder: 'type a message'
-        .form__mask
-          = f.label :image, class: 'form__mask__image' do
-            = fa_icon 'picture-o', class: 'icon'
-            = f.file_field :image, class: 'hidden'
-        = f.submit 'Sebd' , class: 'form__submit'
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'main__footer__body' , placeholder: 'tylpe a message'
+      .form__mask
+        = f.label :image, class: 'image' do
+          = fa_icon 'picture-o', class: 'fa-image'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send' , class: 'submit'
