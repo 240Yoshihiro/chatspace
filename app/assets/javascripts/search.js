@@ -32,7 +32,7 @@ $(function() {
 
 //チャットメンバー欄に記載されているユーザーのidを取得し配列に保存
       var chat_member_list = [];
-      $("#chat-group-users").find('.chat_member_id').each( function( index, element ) {
+      $("#chat-group-users").find('.chat_member_id').each( function( element ) {
         chat_member_list.push(element.value);
       });
 
@@ -47,7 +47,7 @@ $(function() {
 
 //ajax処理が失敗した場合の処理
     .fail(function(){
-      aleat('Error');
+      alert('Error');
     })
   });
 
