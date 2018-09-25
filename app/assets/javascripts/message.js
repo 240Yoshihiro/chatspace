@@ -59,7 +59,7 @@ $(function(){
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
       // チャットグループの最新のメッセージのidを取得
       var last_message_id = $(".main__body__message-list__message:last").attr("data-message-id");
-      console.log(last_message_id)
+
       $.ajax({
         type: "GET",
         url: location.href,
@@ -80,7 +80,7 @@ $(function(){
       .fail(function(){
         alert('メッセージの自動更新に失敗しました');
       });
-    }else{
+    } else {
     clearInterval(interval);
-  }}, 3*1000);
+  }}, 3*1000 );
 });
