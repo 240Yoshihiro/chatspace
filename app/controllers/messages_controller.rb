@@ -2,11 +2,13 @@ class MessagesController < ApplicationController
   before_action :set_group
 
   def index
+    @group = Group.find(params[:group_id])
     @message = Message.new
     @messages = @group.messages.includes(:user)
+    @new_messages = @group.messages.includes(:user).where('id > ?', params[:id])
     respond_to do |format|
       format.html
-      format.json {@new_messages = @group.messages.includes(:user).where('id > ?', params[:message][:id])}
+      format.json {@new_messages}
     end
   end
 
