@@ -56,12 +56,12 @@
           font-size: 12px;
           color: $textGray;
         }
-        &__text  {
+        &__text {
           font-size: 14px;
           color: $textNavy;
           margin-top: 10px;
           clear: both;
-          &__text {
+          %p {
           }
           .lower-message__image {
             height: 150px;
